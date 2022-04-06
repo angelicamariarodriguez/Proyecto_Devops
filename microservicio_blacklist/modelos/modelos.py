@@ -12,12 +12,12 @@ class Black(db.Model):
     email = db.Column(db.String(128))
     id_app_cliente = db.Column(db.String(128))
     motivo = db.Column(db.String(255))
+    ip = db.Column(db.String(128))
+    fecha = db.Column(db.Date)
     #users = db.relationship('User', secondary='black_user', back_populates = 'blacks')
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    ip = db.Column(db.String(128))
-    fecha = db.Column(db.Date)
     #blacks = db.relationship('Black', secondary='black_user', back_populates = 'users')
 
 
