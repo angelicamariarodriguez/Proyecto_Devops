@@ -17,12 +17,18 @@ class VistaBlacks(Resource):
         #falta  lo de guardar la ip
         db.session.add(nuevo_black)
         db.session.commit()
-        #resp = make_response(json.dumps(nuevo_black), "El correo fue agregado exitosamente a la lista")     
-        return black_schema.dump(nuevo_black)
+        validacion = Black.query.filter_by(email=request.json['email'], id_app_cliente = request.json['id_app_cliente']).all()
+        if validacion:
+                return {'mensaje':'El email fue exitosamente añadido a la lista negra'}, 200
+        else:
+                return {'mensaje':'Error al añadir el email a la lista negra'}, 401
 
 class VistaBlack(Resource):
 
     def get(self, email):
         
         black_customer = Black.query.filter_by(email = email).first()
-        return black_schema.dump(black_customer)
+        if black_customer:
+            return black_schema.dump(black_customer)
+        else:
+            return {'mensaje':'El email no se encuentra en la lista negra'}, 404
