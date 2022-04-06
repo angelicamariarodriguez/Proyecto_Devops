@@ -1,2 +1,3 @@
 environmentpip install
 .venv
+.idea
