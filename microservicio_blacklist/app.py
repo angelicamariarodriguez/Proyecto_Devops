@@ -3,7 +3,6 @@ from flask_restful import Resource, Api
 from flask import Flask, request
 from .modelos import db, Black, User, BlackSchema, UserSchema
 from .vistas import VistaBlack, VistaBlacks
-#from flask_jwt_extended import JWTManager
 import requests
 
 
@@ -17,4 +16,3 @@ api = Api(app)
 api.add_resource(VistaBlacks, '/blacklists')
 api.add_resource(VistaBlack, '/blacklists/<string:email>')
 
-#jwt = JWTManager(app)
