@@ -3,7 +3,6 @@ from flask_restful import Resource, Api
 from flask import Flask, request
 from .modelos import db, Black, User, BlackSchema, UserSchema
 from .vistas import VistaBlack, VistaBlacks
-import requests
 
 
 app = create_app('default')
