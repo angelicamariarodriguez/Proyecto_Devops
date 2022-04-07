@@ -1,7 +1,7 @@
 from datetime import datetime
 import json
 from flask_restful import Resource
-from ..modelos import db, Black, User, BlackSchema, UserSchema
+from modelos.modelos import db, Black, User, BlackSchema, UserSchema
 from flask import make_response, request, session
 #from flask_jwt_extended import jwt_required, create_access_token
 
